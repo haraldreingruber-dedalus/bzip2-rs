@@ -6,6 +6,10 @@ use std::marker;
 use std::mem;
 use std::slice;
 
+#[cfg(feature = "std")]
+use std::os::raw::{c_int, c_uint};
+
+#[cfg(not(feature = "std"))]
 use libc::{c_int, c_uint};
 
 use {ffi, Compression};
