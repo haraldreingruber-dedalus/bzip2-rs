@@ -148,7 +148,7 @@ impl<R: Read> Read for BzDecoder<R> {
 }
 
 #[cfg(feature = "tokio")]
-impl<R: AsyncRead + Read> AsyncRead for BzDecoder<R> {}
+impl<R: AsyncRead> AsyncRead for BzDecoder<R> {}
 
 impl<W: Write + Read> Write for BzDecoder<W> {
     fn write(&mut self, buf: &[u8]) -> io::Result<usize> {
